@@ -1,0 +1,58 @@
+-- 1. Create database
+CREATE DATABASE IF NOT EXISTS naturewise_db;
+USE naturewise_db;
+
+-- 2. Create users table
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Add placeholder destination data (Optional but recommended for the destinations page)
+CREATE TABLE IF NOT EXISTS destinations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    country VARCHAR(50),
+    name VARCHAR(100),
+    description TEXT,
+    image_path VARCHAR(255)
+);
+
+INSERT INTO destinations (country, name, description, image_path) VALUES
+('Tanzania', 'Serengeti National Park', 'Witness the Great Migration and endless plains teeming with wildlife.', 'images/placeholder_serengeti.jpg'),
+('Tanzania', 'Zanzibar Archipelago', 'Relax on pristine white-sand beaches and explore historic Stone Town.', 'images/placeholder_zanzibar.jpg'),
+('Kenya', 'Maasai Mara Reserve', 'Home to the Big Five and incredible savannah landscapes.', 'images/placeholder_mara.jpg'),
+('Kenya', 'Amboseli National Park', 'Famous for large elephant herds and views of Mount Kilimanjaro.', 'images/placeholder_amboseli.jpg');
+-- NOTE: You need to add actual images for these placeholders in your images folder.
+
+-- 1. Table for Climbing & Trekking Mountains
+CREATE TABLE IF NOT EXISTS mountains (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    country VARCHAR(50),
+    name VARCHAR(100),
+    height VARCHAR(50),
+    description TEXT,
+    image_path VARCHAR(255)
+);
+
+-- 2. Insert Data for Mountains (Use paths, not blobs!)
+INSERT INTO mountains (country, name, height, description, image_path) VALUES
+('Tanzania', 'Mount Kilimanjaro', '5,895m', 'The Roof of Africa. The highest free-standing mountain in the world.', 'images/kilimanjaro.jpg'),
+('Kenya', 'Mount Kenya', '5,199m', 'The second highest peak in Africa, offering technical climbing and stunning scenery.', 'images/mt_kenya.jpg'),
+('Tanzania', 'Mount Meru', '4,562m', 'A dramatic active volcano and a great acclimatization climb for Kilimanjaro.', 'images/meru.jpg'),
+('Kenya', 'Mount Longonot', '2,776m', 'A crater climb offering amazing views of the Great Rift Valley.', 'images/longonot.jpg');
+
+-- 3. Table for Bookings
+CREATE TABLE IF NOT EXISTS bookings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100),
+    email VARCHAR(100),
+    phone VARCHAR(20),
+    trip_type VARCHAR(50),
+    travel_date DATE,
+    people INT,
+    message TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
