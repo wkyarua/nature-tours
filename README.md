@@ -58,7 +58,7 @@ php
 
 To run this project locally, you will need a local server environment (e.g., XAMPP, WAMP, or MAMP).
 
-1. ###Clone the repository
+1. ### Clone the repository
    ```bash
    git clone [https://github.com/yourusername/naturewise-tours.git](https://github.com/yourusername/naturewise-tours.git)
 
