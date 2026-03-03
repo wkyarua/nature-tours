@@ -1,4 +1,4 @@
-#🌍 Naturewise Tours | Premium African Safaris
+🌍 Naturewise Tours | Premium African Safaris
 A full-stack, highly dynamic, and responsive web platform built for Naturewise Tours, a luxury safari and mountain trekking outfitter based in East Africa. The platform is designed to handle dynamic tour package rendering, seamless user booking inquiries via SMTP, and multi-language support, all wrapped in a premium, modern UI inspired by top-tier travel agencies.
 
 🔗 Live Website: https://naturewise.tours
