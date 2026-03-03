@@ -74,3 +74,6 @@ To run this project locally, you will need a local server environment (e.g., XAM
 4. ### Run the Application
 . Place the project folder in your local web root directory.
 . Navigate to `http://localhost/naturewise-tours` in your browser.
+
+### NB
+The pages uploaded are not all the pages used to create i've uploaded an overview of techniques even included comments  for more clarifiacations on the techniques i used to build the naturewise tours. all the pages weren't added so no one can be able to clone the whole work and make it his/hers.
