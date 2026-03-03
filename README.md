@@ -10,11 +10,11 @@ A full-stack, highly dynamic, and responsive web platform built for **Naturewise
 
 ---
 
-## 🚀 Project Overview
+##  Project Overview
 
 The core objective of this project was to engineer a robust, scalable tour agency platform from scratch, avoiding heavy CMS frameworks to ensure maximum performance and bespoke design control. The architecture relies on a custom PHP backend, a relational MySQL database for managing dynamic content, and a lightweight, vanilla front-end stack heavily optimized for mobile responsiveness.
 
-### ✨ Key Features
+###  Key Features
 
 * **Custom Premium UI/UX:** Built a highly customized, mobile-first interface utilizing CSS Flexbox/Grid, dynamic hero videos, and `IntersectionObserver` for performant scroll animations.
 * **Dynamic Content Rendering:** Packages, destinations, and mountain trekking details are fetched dynamically from the MySQL database.
@@ -39,7 +39,7 @@ The core objective of this project was to engineer a robust, scalable tour agenc
 
 ---
 
-## 🧠 Technical Highlights & Solutions
+##  Technical Highlights & Solutions
 
 As a full-stack developer and graphic designer, several unique technical and visual challenges were solved during this build:
 
@@ -50,3 +50,29 @@ Standard Google Translate widgets break UI immersion. I built a script that inje
 Instead of storing simple file paths, some database tables store images directly as raw binary code (`LONGBLOB`). I implemented a fast, server-side encoding method to render these inline safely:
 ```php
 <img src="data:image/jpeg;base64,<?php echo base64_encode($row['image_path']); ?>" alt="Dynamic Tour Image">
+
+### 3. SMTP Embedded Email Assets
+To prevent HTML emails from displaying "broken image" squares in clients like Gmail or Outlook, the booking engine utilizes PHPMailer's `addEmbeddedImage()` function to attach the company logo directly into the MIME payload and reference it via `cid:`, bypassing external HTTPS image blocking.
+
+---
+
+## ⚙️ Local Installation & Setup
+
+To run this Project locally, you will need a local server environment (e.g., XAMPP, WAMP, or MAMP).
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/yourusername/naturewise-tours.git](https://github.com/yourusername/naturewise-tours.git)
+
+2. ### Setup the Database
+a. Open phpMyAdmin or your preferred SQL client.
+b. Create a new database (e.g., `naturewise_db`).
+c. Import the provided `.sql` file to generate the required tables.
+
+3. ### Configure Environment
+a. Open `includes/db.php` and update the database credentials (`hostname`, `username`, `password`, `dbname`) to match your local setup.
+b. Update the SMTP credentials in `process_booking.php` with your own Mailtrap or testing SMTP server details.
+
+4. ### Run the Application
+a. Place the project folder in your local web root directory.
+b. Navigate to `http://localhost/naturewise-tours` in your browser.
