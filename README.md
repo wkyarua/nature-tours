@@ -46,33 +46,31 @@ As a full-stack developer and graphic designer, several unique technical and vis
 ### 1. The "Hidden" Translation Engine
 Standard Google Translate widgets break UI immersion. I built a script that injects an official `googtrans` cookie into the browser and dispatches a synthetic `change` event to a hidden Google script. This allows the custom header UI to translate the site instantly while keeping the Google branding completely invisible.
 
-### 2. Binary Image Rendering (LONGBLOB)
-Instead of storing simple file paths, some database tables store images directly as raw binary code (`LONGBLOB`). I implemented a fast, server-side encoding method to render these inline safely:
-```php
-<img src="data:image/jpeg;base64,<?php echo base64_encode($row['image_path']); ?>" alt="Dynamic Tour Image">
-
-### 3. SMTP Embedded Email Assets
+### 2. SMTP Embedded Email Assets
 To prevent HTML emails from displaying "broken image" squares in clients like Gmail or Outlook, the booking engine utilizes PHPMailer's `addEmbeddedImage()` function to attach the company logo directly into the MIME payload and reference it via `cid:`, bypassing external HTTPS image blocking.
 
----
+### 3. Binary Image Rendering (LONGBLOB)
+Instead of storing simple file paths, some database tables store images directly as raw binary code (`LONGBLOB`). I implemented a fast, server-side encoding method to render these inline safely:
+php 
+`` <img src="data:image/jpeg;base64,<?php echo base64_encode($row['image_path']); ?>" <imgalt="Dynamic Tour Image">``
 
 ## ⚙️ Local Installation & Setup
 
-To run this Project locally, you will need a local server environment (e.g., XAMPP, WAMP, or MAMP).
+To run this project locally, you will need a local server environment (e.g., XAMPP, WAMP, or MAMP).
 
-1. **Clone the repository:**
+1. ###Clone the repository
    ```bash
    git clone [https://github.com/yourusername/naturewise-tours.git](https://github.com/yourusername/naturewise-tours.git)
 
 2. ### Setup the Database
-a. Open phpMyAdmin or your preferred SQL client.
-b. Create a new database (e.g., `naturewise_db`).
-c. Import the provided `.sql` file to generate the required tables.
+. Open phpMyAdmin or your preferred SQL client.
+. Create a new database (e.g., `naturewise_db`).
+. Import the provided `.sql` file to generate the required tables.
 
 3. ### Configure Environment
-a. Open `includes/db.php` and update the database credentials (`hostname`, `username`, `password`, `dbname`) to match your local setup.
-b. Update the SMTP credentials in `process_booking.php` with your own Mailtrap or testing SMTP server details.
+. Open `includes/db.php` and update the database credentials (`hostname`, `username`, `password`, `dbname`) to match your local setup.
+. Update the SMTP credentials in `process_booking.php` with your own Mailtrap or testing SMTP server details.
 
 4. ### Run the Application
-a. Place the project folder in your local web root directory.
-b. Navigate to `http://localhost/naturewise-tours` in your browser.
+. Place the project folder in your local web root directory.
+. Navigate to `http://localhost/naturewise-tours` in your browser.
